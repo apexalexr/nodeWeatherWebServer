@@ -64,7 +64,8 @@ app.get('/weather', (req, res) => {
                     })
                 } else {
                     return res.send({
-                        forecast,
+                        forecast: forecast.forecast,
+                        summary: forecast.summary,
                         location,
                         address: req.query.address
                     })

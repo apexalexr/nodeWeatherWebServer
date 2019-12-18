@@ -12,9 +12,13 @@ const darksky = (lat, long, callback) => {
         } else { 
             const temperature = body.currently.temperature
             const precipProbability = body.currently.precipProbability
+            const summary = body.currently.summary
             // console.log(response.body.daily.data[0].summary)
             // console.log(response.body.daily.data[1].summary)
-            callback(undefined, 'It is currently ' + temperature + ' degrees out. There is a ' + precipProbability + '% chance of rain.')
+            callback(undefined, {
+                forecast: 'It is currently ' + temperature + ' degrees out. There is a ' + precipProbability + '% chance of rain.',
+                summary
+            })
         }
     })
 }
